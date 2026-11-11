@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#8edff1" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🏝️%3C/text%3E%3C/svg%3E" />
+  <title>Ilha dos Sonhos — Sandbox</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <canvas id="world" aria-label="Mundo sandbox interativo"></canvas>
+    <div class="sky-glow"></div>
+    <header class="topbar">
+      <button class="brand" id="homeBtn" aria-label="Voltar para a ilha"><span class="brand-mark">✿</span><span><b>ilha dos sonhos</b><small>MEU MUNDINHO</small></span></button>
+      <div class="top-center"><span class="weather">☀️ <b>Dia ensolarado</b></span><span class="divider"></span><span class="clock">☀ <b id="clock">09:41</b></span></div>
+      <div class="top-actions"><div class="coin"><span>✦</span><b id="coins">2.450</b></div><button class="icon-btn" id="saveBtn" title="Salvar mundo">▣</button><button class="icon-btn menu-btn" id="menuBtn" title="Menu">☰</button></div>
+    </header>
+
+    <section class="quest-card"><div class="quest-icon">🧱</div><div><small>MISSÃO DE HOJE</small><b id="questTitle">Um cantinho com a sua cara</b><span id="questText">Construa e decore sua ilha!</span></div><button id="questClose" aria-label="Fechar missão">×</button></section>
+
+    <div class="world-label"><span class="live-dot"></span><span id="zoneName">PRAÇA DAS FLORES</span><small>• ILHA LIVRE</small></div>
+    <div class="hint-pill" id="hintPill">✨ Toque no chão para construir</div>
+
+    <div class="build-panel" id="buildPanel">
+      <div class="panel-heading"><div><small>MODO CRIATIVO</small><h2>Construa seu mundo</h2></div><button class="close-panel" id="closePanel">×</button></div>
+      <div class="category-row" id="categories">
+        <button class="category active" data-category="all">✦<span>Tudo</span></button><button class="category" data-category="build">▦<span>Blocos</span></button><button class="category" data-category="home">⌂<span>Casa</span></button><button class="category" data-category="nature">❀<span>Natureza</span></button><button class="category" data-category="fun">♫<span>Diversão</span></button>
+      </div>
+      <div class="catalog" id="catalog"></div>
+      <div class="panel-footer"><span>🪙 <b id="selectedPrice">Grátis</b></span><span>Toque no terreno para posicionar</span><button id="duplicateBtn">▣ Duplicar</button><button id="deleteBtn">⌫ Apagar</button><button id="rotateBtn">⟳ Girar</button></div>
+    </div>
+
+    <nav class="bottom-nav" aria-label="Ferramentas do jogo">
+      <button class="nav-item active" data-mode="move"><span class="nav-icon">🧍</span><b>Explorar</b></button>
+      <button class="nav-item" data-mode="build"><span class="nav-icon">🧱</span><b>Construir</b><i class="nav-dot"></i></button>
+      <button class="nav-item" data-mode="decorate"><span class="nav-icon">🪴</span><b>Decorar</b></button>
+      <button class="nav-item" data-mode="avatar"><span class="nav-icon">👕</span><b>Visual</b></button>
+      <button class="nav-item" data-mode="activities"><span class="nav-icon">⚽</span><b>Atividades</b></button>
+    </nav>
+
+    <div class="mobile-controls" id="mobileControls"><div class="dpad"><button data-dir="up">⌃</button><div><button data-dir="left">‹</button><button data-dir="down">⌄</button><button data-dir="right">›</button></div></div><button class="action-button" id="actionBtn"><span>✦</span><small>AGIR</small></button></div>
+    <div class="desktop-help">WASD mover <i>•</i> clique para construir <i>•</i> E interagir</div>
+
+    <aside class="quick-actions"><button id="vehicleBtn"><span>🚙</span><small>Dirigir</small></button><button id="sportBtn"><span>⚽</span><small>Jogar</small></button><button id="interactBtn"><span>✋</span><small>Interagir</small></button></aside>
+    <div class="toast" id="toast"></div>
+    <div class="modal-backdrop" id="modalBackdrop"><section class="modal" id="modal"><button class="modal-close" id="modalClose">×</button><div id="modalContent"></div></section></div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
